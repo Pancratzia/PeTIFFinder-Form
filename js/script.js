@@ -22,6 +22,37 @@ marker.on('moveend', function (e) {
 document.getElementById('latitud').value = initialCoordinates[0];
 document.getElementById('longitud').value = initialCoordinates[1];
 
+
+// Detectar ubicación actual al presionar el botón
+document.getElementById('ubicacion-btn').addEventListener('click', () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords;
+                document.getElementById('latitud').value = latitude.toFixed(6);
+                document.getElementById('longitud').value = longitude.toFixed(6);
+                marker.setLatLng([latitude, longitude]);
+                map.setView([latitude, longitude], 15);
+            },
+            () => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'No se pudo obtener tu ubicación.',
+                });
+            }
+        );
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Tu navegador no soporta geolocalización.',
+        });
+    }
+});
+
+
+
 // Enviar el formulario a Zapier
 document.getElementById('report-form').addEventListener('submit', function (event) {
     event.preventDefault();
