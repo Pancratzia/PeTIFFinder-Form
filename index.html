@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Mascota - PeTIFFinder</title>
+    <link rel="stylesheet" href="./style/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="https://petiffinder.webflow.io/">Volver a la página oficial de PeTIFFinder</a></li>
+        </ul>
+    </nav>
+
+    <h1>Reportar Mascota PeTIFFinder</h1>
+    <p>
+        Ayuda a una mascota a regresar a casa. Completa este formulario con el código del dispositivo 
+        PeTIFFinder, la ubicación actual y cualquier detalle adicional que desees incluir.
+    </p>
+    <div id="map"></div>
+    
+    <form id="report-form">
+        <label for="codigo">Código PeTIFFinder (obligatorio):</label>
+        <input type="text" id="codigo" name="codigo" required />
+        
+        <label for="latitud">Latitud:</label>
+        <input type="text" class="no-touchable" id="latitud" name="latitud" readonly required />
+        
+        <label for="longitud">Longitud:</label>
+        <input type="text" class="no-touchable" id="longitud" name="longitud" readonly required />
+        
+        <label for="nota">Nota adicional (opcional):</label>
+        <textarea id="nota" name="nota"></textarea>
+        
+        <button type="submit">Enviar reporte</button>
+    </form>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
+
