@@ -71,7 +71,7 @@ document.getElementById('report-form').addEventListener('submit', function (even
         }
     };
 
-    fetch('https://hooks.zapier.com/hooks/catch/20885204/2if1o24/', {
+    fetch('https://hooks.zapier.com/hooks/catch/21175142/280l1uz/', {
         method: 'POST',
         mode: 'no-cors', // Permite enviar la solicitud sin verificar los encabezados de CORS
         headers: { 'Content-Type': 'application/json' },
